@@ -30,7 +30,7 @@
                                 <td id="Name-{{ $product->product_name }}"> {{ $product->product_name }} </td>
                                 <td id="ingredients-{{ $product->product_ingredients }}"> {{ $product->product_ingredients }} </td>
                                 <td>
-                                        <a href="" class="btn btn-outline-danger" id="edit-{{ $product->product_name }}">Edit</a>
+                                        <a href="{{ route('edit_prod', $product->product_id) }}" class="btn btn-outline-danger" id="edit-{{ $product->product_name }}">Edit</a>
                                     </td>
                                 <td>
                                     <a href="{{ route('delete_product', $product->product_id) }}" class="btn btn-outline-danger" id="delete">Delete</a>

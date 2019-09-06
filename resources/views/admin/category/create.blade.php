@@ -33,7 +33,7 @@
                                     <td><span class="product">{{ str_limit($category->category_items, $limit = 20, $end = '...') }}</span> </td>
                                     <td><span class="count">{{ $category->created_at }}</span></td>
                                     <td>
-                                        <a id="model_edit" class="btn btn-outline-success">Edit</a>
+                                        <a href="{{ route('edit_cat', $category->category_id) }}" class="btn btn-outline-success">Edit</a>
                                     </td>
                                     
                                     <td>
@@ -45,9 +45,12 @@
                     </table>
                     {{ $categories->links('admin.modules.pagination') }}
                 </div> <!-- /.table-stats -->
+                <div class="modal-edit">
+                </div>
             </div>
         </div>
     </div>  
+    
 <div class="modal fade" id="categoryModal" 
      tabindex="-3" role="dialog" 
      aria-labelledby="ingredientModalLable">
@@ -114,7 +117,7 @@
 
     </div>
   </div>
-</div>
+</div> 
 
 
 
@@ -128,4 +131,7 @@ function clearfields(){
     return;
 }
 </script>
+@endsection
+@section('scripts')
+
 @endsection

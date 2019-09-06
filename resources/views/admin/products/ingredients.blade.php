@@ -51,7 +51,6 @@
             </div>
             <div class="modal-body">
                 <form action="{{ route('add_ingredient') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
-                  @include('admin.includes.messages')
                       @csrf
                     <div class="row form-group">
                         <div class="col col-md-3">

@@ -30,9 +30,12 @@ class CategoryController extends Controller
     }
 
     public function edit($id){
-        $category = Category::whereid($id)->get();
+        $category = Category::where('category_id', $id)->get();
+        $products = Products::orderBy('created_at', 'asc')->get();
         return view('admin.category.edit', [
             'categories' => $category,
+            'products' => $products,
+
         ]);
     }
 
@@ -52,7 +55,7 @@ class CategoryController extends Controller
             'message' => "Successfully deleted category",
         ];
 
-        return redirect('/admin/category/list')
+        return redirect('/admin/category/create')
         ->with($message);
     }
 

@@ -57,13 +57,17 @@
                         <div class="card-header">
                             <strong>Create Order</strong>
                         </div>
+                        <div class="order-item">
+                            <p class="text-header">
+                            <p class="text-description">
+                        </div>
                         <div class="modal-body">
                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                         @include('admin.includes.messages')
                             <div class="card-body card-block">
                                 @csrf 
                                 <div class="row">
-                                    <div class="col-3 scrollbar" style="border-style:solid; width:200px; height: 450px;">
+                                    <div class="col-3 border scrollbar" style="width:200px; height: 450px;">
                                         <div>
                                             @foreach ($categories as $category)
                                                 <div>
@@ -73,13 +77,25 @@
                                             @endforeach
                                         </div>
                                     </div>
-                                    <div class="col-9" style="border-style:solid; height: 450px;">
+                                    <div class="col-9 border scrollbar" style="height: 450px;">
                                         <div>
-                                            @foreach ($categories as $category)
-                                                @foreach ($category as $category->category_items)
-                                                    <p>{{$category->category_items}}</p>
-                                                @endforeach
-                                            @endforeach
+                                            <div class="row p-2">
+                                                <div style="width:25%;">
+                                                    <div class="col-3 border">
+                                                        <p>box 1</p>
+                                                    </div>
+                                                </div>
+                                                <div style="width:25%;">
+                                                    <div class="col-3 border">
+                                                        <p>box 1</p>
+                                                    </div>
+                                                </div>
+                                                <div style="width:25%;">
+                                                    <div class="col-3 border">
+                                                        <p>box 1</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

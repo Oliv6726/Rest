@@ -31,7 +31,7 @@ Route::get('/admin', 'AdminController@index')->name('admin');
  * Category routes
  */
 Route::get('/admin/category/create', 'CategoryController@create');
-Route::get('/admin/category/edit/{id}', 'CategoryController@edit');
+Route::get('/admin/category/edit/{id}', 'CategoryController@edit')->name('edit_cat');
 Route::post('/admin/category/edit/{id}', 'CategoryController@update')->name('update_cat');
 Route::post('/admin/category/create', 'CategoryController@add')->name('add_cat');
 Route::get('/admin/category/delete/{id}', 'CategoryController@delete')->name('delete_cat');
@@ -41,6 +41,8 @@ Route::get('/admin/category/delete/{id}', 'CategoryController@delete')->name('de
  */
 Route::get('/admin/product/create', 'ProductController@create');
 Route::post('/admin/product/create', 'ProductController@add')->name('add_prod');
+Route::get('/admin/product/edit/{id}', 'ProductController@edit')->name('edit_prod');
+Route::post('/admin/product/edit/{id}', 'ProductController@update')->name('update_prod');
 Route::get('/admin/product/create/delete/{id}', 'ProductController@delete')->name('delete_product');
 
 /**
@@ -65,6 +67,8 @@ Route::get('/admin/product/ingredients/delete/{id}', 'IngredientController@delet
  */
 Route::get('/admin/menu/', 'MenuController@create');
 Route::post('/admin/menu', 'MenuController@add')->name('add_menu');
+Route::get('/admin/menu/edit/{id}', 'MenuController@edit')->name('edit_menu');
+Route::post('/admin/menu/edit/{id}', 'MenuController@update')->name('update_menu');
 
 /**
  * Order routes

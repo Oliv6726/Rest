@@ -31,6 +31,17 @@ class ProductController extends Controller
         ]);
 
     }
+
+    public function edit($id){
+        $ingredients = ingredients::where('ingredient_id', $id)->get();
+        $products = Products::orderBy('created_at', 'asc')->get();
+        return view('admin.products.edit-products', [
+            'ingredients' => $ingredients,
+            'products' => $products,
+
+        ]);
+    }
+
     public function delete($id){
         Products::where('product_id', $id)->delete();
         $message = [

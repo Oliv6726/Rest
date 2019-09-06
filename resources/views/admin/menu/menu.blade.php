@@ -29,7 +29,7 @@
                                 <td> {{ $menu->menu_name }} </td>
                                 <td> {{ $menu->menu_items }} </td>
                                 <td>
-                                        <a href="" class="btn btn-outline-danger">Edit</a>
+                                        <a href="{{ route('edit_menu', $menu->menu_id) }}" class="btn btn-outline-success">Edit</a>
                                     </td>
                                 <td>
                                     <a href="" class="btn btn-outline-danger">Delete</a>
