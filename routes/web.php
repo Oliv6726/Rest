@@ -75,3 +75,4 @@ Route::post('/admin/menu/edit/{id}', 'MenuController@update')->name('update_menu
  */
 
  Route::get('/admin/orders', 'OrderController@index');
+ Route::get('/admin/orders/get/{name}', 'OrderController@get');

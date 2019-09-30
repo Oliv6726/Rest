@@ -1,18 +1,10 @@
 @extends('admin.layout.default')
-<style>
-.scrollbar {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  z-index: 10;
-  align-items: center;
-
-}
-.img {
-  width: 80px;
-  height: 80px;
-
-}
-</style>
+@section('custom_style')
+<link rel="stylesheet" href="{{ asset('css/custom/order-style.css') }}">
+@endsection
+@section('scripts')
+<script src="{{ asset('js/custom/order-add.js') }}"></script>
+@endsection
 @section('title', 'Orders')
 @section('content')
 
@@ -68,34 +60,32 @@
                                 @csrf 
                                 <div class="row">
                                     <div class="col-3 border scrollbar" style="width:200px; height: 450px;">
-                                        <div>
-                                            @foreach ($categories as $category)
-                                                <div>
-                                                    <hr>
-                                                        <img class="img" src="data:image/png;base64,{{ chunk_split(base64_encode($category->category_picture))}}">
-                                                </div>
-                                            @endforeach
-                                        </div>
+                                        @foreach ($categories as $category)
+                                            <div>
+                                                <hr>
+                                                <a id="add_order" href="javascript:void(0)">
+                                                    <img class="img" name="{{ $category->category_name }}" src="data:image/png;base64,{{ chunk_split(base64_encode($category->category_picture))}}">
+                                                </a>
+                                            </div>
+                                        @endforeach
                                     </div>
                                     <div class="col-9 border scrollbar" style="height: 450px;">
                                         <div>
-                                            <div class="row p-2">
-                                                <div style="width:25%;">
-                                                    <div class="col-3 border">
-                                                        <p>box 1</p>
-                                                    </div>
-                                                </div>
-                                                <div style="width:25%;">
-                                                    <div class="col-3 border">
-                                                        <p>box 1</p>
-                                                    </div>
-                                                </div>
-                                                <div style="width:25%;">
-                                                    <div class="col-3 border">
-                                                        <p>box 1</p>
-                                                    </div>
-                                                </div>
+                                            <div class="row">
+
+                                                <div type="checkbox" class="col border item-box">
+                                                    <h4> Title</h4>
+                                                    <hr>
+                                                </diV>
+                                                <div type="checkbox" class="col border item-box">
+                                                    awd
+                                                </diV>
+                                                <div type="checkbox" class="col border item-box">
+                                                    awd
+                                                </diV>
+                                                
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -116,24 +106,3 @@
   </div>
 </div>
 @endsection
-
-
-<!--
-<div class="row form-group">
-        <div class="col col-md-3">
-            <label for="category-name" class=" form-control-label">Category name</label>
-        </div>
-        <div class="col-12 col-md-9">
-            <input type="text" id="category-name" name="category-name" placeholder="Veggies..." class="form-control" required>
-        </div>
-    </div>
-    <div class="row form-group">
-        <div class="col col-md-3">
-            <label for="select" class=" form-control-label">Category items</label>
-        </div>
-        <div class="col-12 col-md-9">
-            <select name="category-items[]" id="multiple-select" multiple="" style="height 500%;" class="form-control">
-            </select>
-        </div>
-    </div>
-    --> 

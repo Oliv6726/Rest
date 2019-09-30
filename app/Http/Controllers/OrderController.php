@@ -43,9 +43,26 @@ class OrderController extends Controller
         ]);
     }
 
+    public function get(string $name){
+        $category = Category::where('category_name', $name)->first();
+        if(!strpos($category->category_items, ',')) {
+            $item_name = Products::select('product_name')->where('product_id', $category->category_items)->first();
+            $category->category_items = $item_name->product_name;
+        }
+        $product_info = [];
+        $items = explode(",", $category->category_items);
+        $product_info["items"] = $items;
+        return $this->parse_items($items);
+        
+    }
+
     /**
-     * Modal 
+     * Custom methods
      */
+
+    public getProd(string $name){
+        
+    }
     public function parse_items(Array $items){
         $parsed_items = [];
         foreach ($items as $item ){

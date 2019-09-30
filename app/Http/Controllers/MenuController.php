@@ -66,8 +66,10 @@ class MenuController extends Controller
         if(Input::has('product-items')) {
             $item_ids = implode(',', Input::get('product-items'));
         }
+        
         $items = isset($item_ids) ? $item_ids : $menu->menu_items;
         $image_file = isset($image_files) ? $image_files : $menu->menu_picture;
+
         $menu_name = empty(Input::get('menu-name')) ? Input::get('menu-name') : $menu->menu_name;
         $menu_desc = empty(Input::get('description-name')) ? Input::get('description-name') : $menu->menu_desc;
         $menu->update([

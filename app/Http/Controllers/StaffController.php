@@ -22,9 +22,9 @@ class StaffController extends Controller
     }
 
     public function edit($id){
-        $category = Category::whereid($id)->get();
-        return view('admin.category.edit', [
-            'categories' => $category,
+        $user = User::where('id', $id)->get();
+        return view('admin.staff.edit', [
+            'user' => $user,
         ]);
     }
 
@@ -39,7 +39,45 @@ class StaffController extends Controller
      * Update, change, delete...
      */
 
-    public function update(Request $request){
+    public function update($id, Request $request){
+        $names = array(
+            'menu-name' => 'name',
+            'product-items' => 'product',
+            'menu-picture' => 'picture',
+            'description-input' => 'description'
+        );
+        $validator = Validator::make($request->all(), [
+            'menu-name' => 'min:2|max:30',
+            'product-items' => 'array|min:1',
+            'menu-picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'description-input' => 'max:255',
+        ]);
+
+        $validator->setAttributeNames($names); 
+
+        if($validator->fails()){
+            return redirect('/admin/menu/edit/'.$id)
+            ->withInput()
+            ->withErrors($validator);
+        }
+        $menu = User::where('id', $id)->first();
+
+
+        $menu_name = empty(Input::get('menu-name')) ? Input::get('menu-name') : $menu->menu_name;
+        $menu_desc = empty(Input::get('description-name')) ? Input::get('description-name') : $menu->menu_desc;
+        $menu->update([
+            'menu_name' => $menu_name,
+            'menu_items' => $items,
+            'menu_picture' => $image_file,
+            'menu_desc' => $menu_desc,
+        ]);
+
+        $message = [
+            'success' => true,
+            'message' => 'Successfully updated menu',
+        ];
+
+        return redirect('/admin/menu/edit/'.$id)->with($message);
 
     }
     public function add(Request $request){
