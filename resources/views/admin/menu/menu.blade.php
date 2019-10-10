@@ -119,6 +119,3 @@
   </div>
 </div>
 @endsection
-funvtion openModal(id){
-
-}

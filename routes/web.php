@@ -55,7 +55,7 @@ Route::post('/admin/staff/edit/{id}', 'StaffController@update')->name('update_st
 Route::delete('/admin/staff/list', 'StaffController@delete')->name('delete_staff');
 
 /**
- * Ingredients route sdelete_ingredient
+ * Ingredients routes
  */
 Route::get('/admin/product/ingredients', 'IngredientController@create');
 Route::post('/admin/product/ingredients', 'IngredientController@add')->name('add_ingredient');
@@ -76,3 +76,8 @@ Route::post('/admin/menu/edit/{id}', 'MenuController@update')->name('update_menu
 
  Route::get('/admin/orders', 'OrderController@index');
  Route::get('/admin/orders/get/{name}', 'OrderController@get');
+
+ /**
+ * Notification routes
+ */
+Route::get('/api/notifications/get', 'NotificationController@get')->name('getdata');

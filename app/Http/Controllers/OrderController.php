@@ -10,6 +10,7 @@ use App\Products;
 use App\Category;
 use App\Ingredients;
 use App\Menu;
+use App\Orders;
 
 class OrderController extends Controller
 {
@@ -21,21 +22,31 @@ class OrderController extends Controller
 
     public function index()
     {
-        
-        $categories = Category::orderby('created_at', 'asc')->get();
-        $menus = Menu::orderby('created_at', 'asc')->get();
+        /*
+        $orders = Orders::orderby('created_at', 'asc')->get();
         //dd($categories->category_items);
-        foreach($categories as $category){
+        foreach($orders as $order){
+            if(!strpos($order->products, ',')) {
+                $item_name = Products::select('product_name')->where('product_id', $order->products)->first();
+                $order->products = $item_name->product_name;
+                return;
+            }
+            $items = explode(',', $order->products);
+            $items = $this->parse_items($items);
+            $order->products = $items;
+        }*/
+        $categories = Category::orderby('created_at', 'asc')->get();
+        //dd($categories->category_items);
+        foreach($categories as $category){ 
             if(!strpos($category->category_items, ',')) {
                 $item_name = Products::select('product_name')->where('product_id', $category->category_items)->first();
                 $category->category_items = $item_name->product_name;
-                continue;
+                return;
             }
             $items = explode(',', $category->category_items);
             $items = $this->parse_items($items);
             $category->category_items = $items;
         }
-
         
         return view("admin.order.order", [
             'categories' => $categories,
@@ -60,9 +71,6 @@ class OrderController extends Controller
      * Custom methods
      */
 
-    public getProd(string $name){
-        
-    }
     public function parse_items(Array $items){
         $parsed_items = [];
         foreach ($items as $item ){

@@ -18,6 +18,7 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="notification">
                                 <p class="red">You have 3 Notification</p>
+                                
                                 <a class="dropdown-item media" href="#">
                                     <i class="fa fa-check"></i>
                                     <p>Server #1 overloaded.</p>

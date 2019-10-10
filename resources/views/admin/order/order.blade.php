@@ -25,7 +25,8 @@
                         <tr>
                             <th class="serial">#</th>
                             <th>Order ID</th>
-                            <th>Ordered</th>
+                            <th>Products</th>
+                            <th>Table number</th>
                             <th>Status</th>
                             <th>Edit</th>
                             <th>Delete</th>
