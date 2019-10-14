@@ -17,8 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-/**Vent dig den skal være inde i conn
- * Notification routes
- */
-Route::get('/notifications/get', 'NotificationController@get');
+Route::get('/notitfication/get', 'Api\NotificationController@get');

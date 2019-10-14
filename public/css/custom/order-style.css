@@ -1,0 +1,45 @@
+.scrollbar {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 10;
+  align-items: center;
+
+}
+.img {
+  width: 80px;
+  height: 80px;
+}
+.outer-box{
+    padding: 10px;
+    
+}
+.item-box{
+    height: 125px;
+    width: 50px;
+    background-color: #F5F5F5;
+    text-align:center;
+}
+.cardItem{
+  width: 100% !important;
+  height: 95% !important;
+  border-radius: 25px;
+  border-style: solid;
+  border-color: #b2bec3;
+  border-width: thin !important;
+
+
+}
+
+.selectedItem{
+  width: 100% !important;
+  height: 95% !important;
+  border-radius: 25px;
+  -webkit-box-shadow: -1px 0px 11px 0px rgba(52,152,219,1);
+  -moz-box-shadow: -1px 0px 11px 0px rgba(52,152,219,1);
+  box-shadow: -1px 0px 11px 0px rgba(52,152,219,1);
+
+
+}
+.inputfield{
+  width: 30%;
+}

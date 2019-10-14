@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +25,10 @@ Auth::routes();
  */
 Route::get('/admin', 'AdminController@index')->name('admin');
 
+Route::get('test', function(){
+    event(new App\Events\NotificationEvent('dawwda', "dwdawd"));
+    return "Event sent";
+});
 
 /**
  * Category routes

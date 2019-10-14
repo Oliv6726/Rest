@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/cs-skin-elastic.css')}}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @yield('custom_style')
+    @yield('top_scripts')
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
@@ -88,10 +89,12 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="{{asset('js/custom/api-connection.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+    <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+    <script src="{{ asset('js/pusher/EventHandler.js') }}"></script>
+
     @yield('scripts')
 </body>
 </html>
